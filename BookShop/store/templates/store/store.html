@@ -1,0 +1,21 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-4">
+            <div class="card mb-4">
+                <img class="card-img-top" src="{{product.imageURL}}" alt="{{product.name}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-primary add-btn update-cart">Add to Cart</button>
+                        <h5 class="text-right"><strong>${{product.price}}</strong></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
